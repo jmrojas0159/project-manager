@@ -1,0 +1,49 @@
+<div class="table-container">
+  <div class="header-container">
+    <h2 class="table-title">Lista de Proyectos</h2>
+    <button pButton type="button" label="Agregar Proyecto" icon="fas fa-plus" (click)="addProject()"
+      class="add-button"></button>
+  </div>
+  <p-table [value]="projects" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Descripción</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-project>
+      <tr>
+        <td>{{ project.id }}</td>
+        <td>{{ project.name }}</td>
+        <td>{{ project.email }}</td>
+        <td>
+          <button pButton type="button" label="Ver Tareas" icon="fas fa-tasks"
+            (click)="openTaskView(project.id)"></button>
+          <button pButton type="button" label="Editar" icon="fas fa-edit" (click)="editProject(project.id)"></button>
+          <button pButton type="button" label="Eliminar" icon="fas fa-trash"
+            (click)="confirmDelete(project.id)"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="4">
+          <p-paginator [rows]="10" [totalRecords]="projects.length" [rowsPerPageOptions]="[5,10,20]"></p-paginator>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+</div>
+
+<p-confirmDialog header="Confirmación" icon="pi pi-exclamation-triangle">
+  <ng-template pTemplate="message">
+    ¿Está seguro de que desea eliminar este proyecto?
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton label="No" icon="pi pi-times" (click)="onReject()"></button>
+    <button type="button" pButton label="Sí" icon="pi pi-check" (click)="deleteProject(selectedProjectId)"></button>
+  </ng-template>
+</p-confirmDialog>

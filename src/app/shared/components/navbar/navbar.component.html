@@ -1,0 +1,12 @@
+<nav class="navbar">
+  <div class="navbar-brand">
+    <a routerLink="/projects" class="logo">
+      <img src="assets/logo.png" alt="Logo" class="navbar-logo" />
+    </a>
+  </div>
+  <div class="navbar-links" *ngIf="isAuthenticated">
+    <a routerLink="/projects">Proyectos</a>
+    <a routerLink="/tasks">Tareas</a>
+    <button (click)="logout()">Cerrar Sesión</button>
+  </div>
+</nav>

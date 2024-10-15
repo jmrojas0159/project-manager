@@ -1,0 +1,42 @@
+.table-container {
+  margin: 20px;
+  background-color: #e0d8d8; /* Color de fondo claro */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  padding: 20px; /* Espaciado interno */
+}
+
+.p-table {
+  border: none; /* Eliminar bordes predeterminados */
+}
+
+.p-table-header {
+  background-color: #07395f; /* Color del encabezado */
+  color: #ffffff; /* Color del texto del encabezado */
+}
+
+.p-table tbody tr:hover {
+  background-color: #e0f7fa; /* Color de fondo al pasar el mouse */
+}
+
+.p-button {
+  margin-right: 10px; /* Espaciado entre botones */
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Espaciado entre el título y el botón */
+  align-items: center; /* Centrar verticalmente */
+  margin-bottom: 20px; /* Espacio debajo del encabezado */
+}
+
+.add-button {
+  margin-left: auto; /* Empujar el botón a la derecha */
+}
+
+.error-message {
+  color: red;
+  border: 1px solid red;
+  padding: 10px;
+  margin: 10px 0;
+}

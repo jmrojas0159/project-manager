@@ -1,0 +1,47 @@
+<div class="table-container">
+  <div class="header-container">
+    <h2 class="table-title">Tareas </h2>
+
+
+    <button pButton type="button" label="Agregar Tarea" icon="fas fa-plus" (click)="addTasks()"
+      class="add-button"></button>
+  </div>
+  <p-table [value]="tasks" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Completada</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-tasks>
+      <tr>
+        <td>{{ tasks.id }}</td>
+        <td>{{ tasks.title }}</td>
+        <td><input type="checkbox" [checked]="tasks.completed" disabled /></td>
+        <td>
+          <button pButton type="button" label="Editar" icon="fas fa-edit" (click)="editTask(tasks.id)"></button>
+          <button pButton type="button" label="Eliminar" icon="fas fa-trash" (click)="confirmDelete(tasks.id)"></button>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="4">
+          <p-paginator [rows]="10" [totalRecords]="tasks.length" [rowsPerPageOptions]="[5,10,20]"></p-paginator>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog header="Confirmación" icon="pi pi-exclamation-triangle">
+  <ng-template pTemplate="message">
+    ¿Está seguro de que desea eliminar esta tarea?
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton label="No" icon="pi pi-times" (click)="onReject()"></button>
+    <button type="button" pButton label="Sí" icon="pi pi-check" (click)="deleteTask(selectedTaskId)"></button>
+  </ng-template>
+</p-confirmDialog>

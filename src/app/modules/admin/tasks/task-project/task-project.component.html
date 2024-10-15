@@ -1,0 +1,38 @@
+<div class="table-container">
+  <div class="header-container">
+    <h2 class="table-title">Tareas del Proyecto</h2>
+  </div>
+  <p-table [value]="tasks" [paginator]="true" [rows]="10" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Completada</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-tasks>
+      <tr>
+        <td>{{ tasks.id }}</td>
+        <td>{{ tasks.title }}</td>
+        <td><input type="checkbox" [checked]="tasks.completed" disabled /></td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="footer">
+      <tr>
+        <td colspan="4">
+          <p-paginator [rows]="10" [totalRecords]="tasks.length" [rowsPerPageOptions]="[5,10,20]"></p-paginator>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
+<p-confirmDialog header="Confirmación" icon="pi pi-exclamation-triangle">
+  <ng-template pTemplate="message">
+    ¿Está seguro de que desea eliminar este proyecto?
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button type="button" pButton label="No" icon="pi pi-times"></button>
+    <button type="button" pButton label="Sí" icon="pi pi-check"></button>
+  </ng-template>
+</p-confirmDialog>

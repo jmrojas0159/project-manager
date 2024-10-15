@@ -1,0 +1,41 @@
+<div class="form-container">
+  <p-button icon="pi pi-arrow-left" (click)="backList()" />
+  <br>
+  <form [formGroup]="tasksForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group flex-item">
+        <div style="text-align: center;">
+          <label for="name">
+            Tarea</label>
+        </div>
+        <br>
+        <br>
+        <br>
+        <label for="name">
+          Titulo</label>
+        <div class="input-group">
+          <input id="title" formControlName="title" placeholder="Ingresar titulo " />
+          <i class="fas fa-edit icon"></i>
+        </div>
+
+        <div
+          *ngIf="tasksForm.get('title')?.invalid && (tasksForm.get('title')?.touched || tasksForm.get('title')?.dirty)"
+          style="color: red;">
+          Este campo es requerido.
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group ">
+        <label for="ny">Completada:</label>
+        <input type="checkbox" formControlName="completed" />
+      </div>
+    </div>
+
+    <div class="form-group" style="text-align: center;">
+      <p-button label="Guardar" type="submit" icon="pi
+     pi-check" (click)="onSubmit()"></p-button>
+    </div>
+  </form>
+
+</div>

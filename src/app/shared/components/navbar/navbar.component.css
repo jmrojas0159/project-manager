@@ -1,0 +1,72 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #343a40; /* Color de fondo oscuro */
+  padding: 15px 30px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el logo y el texto */
+}
+
+.logo {
+  color: #ffffff; /* Color del texto */
+  text-decoration: none; /* Quitar subrayado */
+  font-size: 24px; /* Ajusta el tamaño de la fuente si es necesario */
+  font-weight: bold; /* Negrita si quieres */
+}
+
+.navbar-logo {
+  width: 40px; /* Ajusta el tamaño del logo */
+  height: auto; /* Mantiene la proporción */
+  margin-right: 10px; /* Espacio entre el logo y el texto */
+}
+
+.navbar-links,
+.navbar-auth {
+  display: flex;
+  gap: 20px; /* Espacio entre enlaces */
+}
+
+.navbar-links a,
+.navbar-auth a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease; /* Transición suave */
+}
+
+.navbar-links a:hover,
+.navbar-auth a:hover {
+  color: #ffdd57; /* Color de hover */
+}
+
+button {
+  background-color: #dc3545; /* Color del botón */
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #c82333; /* Color de hover del botón */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links,
+  .navbar-auth {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

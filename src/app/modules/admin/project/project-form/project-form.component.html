@@ -1,0 +1,38 @@
+<div class="form-container">
+  <p-button icon="pi pi-arrow-left" (click)="backList()" />
+  <br>
+  <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="form-group flex-item">
+        <div style="text-align: center;">
+          <label for="name">
+            Proyectos</label>
+        </div>
+        <br>
+        <br>
+        <br>
+        <label for="name">
+          Titulo</label>
+        <div class="input-group">
+          <input id="name" formControlName="name" placeholder="Ingresar titulo " />
+          <i class="fas fa-edit icon"></i>
+        </div>
+        <div
+          *ngIf="projectForm.get('name')?.invalid && (projectForm.get('name')?.touched || projectForm.get('name')?.dirty)"
+          style="color: red;">
+          Este campo es requerido.
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group flex-item">
+        <label for="description">Descripción:</label>
+        <textarea id="description" formControlName="description"></textarea>
+      </div>
+    </div>
+    <div class="form-group" style="text-align: center;">
+      <p-button label="Guardar" type="submit" (click)="onSubmit()" icon="pi
+       pi-check"></p-button>
+    </div>
+  </form>
+</div>
